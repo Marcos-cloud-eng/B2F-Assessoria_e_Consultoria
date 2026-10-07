@@ -14,8 +14,7 @@ const contatos = {
 
     instagram: "https://www.instagram.com/b2fcontabil/",
 
-    // Vamos preencher amanhã
-    linkedin: ""
+    linkedin: "https://www.linkedin.com/company/in/b2f-contabil-93406043a/?isSelfProfile=true/"
 
 };
 
