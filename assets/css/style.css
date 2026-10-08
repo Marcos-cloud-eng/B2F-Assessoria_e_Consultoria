@@ -266,7 +266,7 @@ a {
 ========================================================= */
 
 .hero-description {
-  max-width: 1120px;
+  max-width: none;
 
   margin: 32px auto 0;
 
@@ -277,6 +277,8 @@ a {
   color: var(--text-light);
 
   text-align: center;
+
+  white-space: nowrap;
 }
 
 
@@ -605,7 +607,7 @@ a {
 ========================================================= */
 
 .contact p {
-  max-width: 900px;
+  max-width: none;
 
   margin: 30px auto 0;
 
@@ -614,6 +616,10 @@ a {
   font-size: 1.2rem;
 
   line-height: 1.7;
+
+  text-align: center;
+
+  white-space: nowrap;
 }
 
 
@@ -693,6 +699,9 @@ a {
     width: calc(100% - 36px);
   }
 
+
+  /* HERO */
+
   .hero {
     min-height: auto;
 
@@ -720,7 +729,12 @@ a {
 
   .hero-description {
     font-size: 1.02rem;
+
+    white-space: normal;
   }
+
+
+  /* ABOUT */
 
   .about {
     min-height: auto;
@@ -739,6 +753,9 @@ a {
     font-size: 1.08rem;
   }
 
+
+  /* SERVICES */
+
   .services {
     padding: 90px 0;
   }
@@ -747,10 +764,17 @@ a {
     grid-template-columns: 1fr;
   }
 
+
+  /* CONTACT */
+
   .contact {
     min-height: auto;
 
     padding: 90px 0;
+  }
+
+  .contact p {
+    white-space: normal;
   }
 
 }
