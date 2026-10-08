@@ -15,9 +15,12 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
   background: #071f28;
   color: #ffffff;
+
   line-height: 1.6;
+
   overflow-x: hidden;
 }
 
@@ -33,7 +36,7 @@ a {
 
 
 /* =========================================================
-   CORES
+   VARIÁVEIS
 ========================================================= */
 
 :root {
@@ -77,6 +80,7 @@ a {
 
 .btn {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -194,7 +198,7 @@ a {
 
 
 /* =========================================================
-   HERO LOGO
+   LOGO
 ========================================================= */
 
 .hero-logo-box {
@@ -226,6 +230,7 @@ a {
   margin: 0;
 
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -266,6 +271,7 @@ a {
   margin: 32px auto 0;
 
   font-size: 1.17rem;
+
   line-height: 1.6;
 
   color: var(--text-light);
@@ -341,7 +347,7 @@ a {
     serif;
 
   font-size:
-    clamp(2.8rem, 4vw, 4.6rem);
+    clamp(2.9rem, 4.2vw, 4.7rem);
 
   line-height: 1.08;
 
@@ -357,7 +363,7 @@ a {
 }
 
 .about-title-line + .about-title-line {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 
@@ -373,6 +379,7 @@ a {
   color: #334b55;
 
   font-size: 1.3rem;
+
   line-height: 1.75;
 
   text-align: center;
@@ -506,6 +513,7 @@ a {
     serif;
 
   font-size: 2rem;
+
   line-height: 1.16;
 
   color: var(--white);
@@ -522,6 +530,7 @@ a {
   color: var(--text-muted);
 
   font-size: 1.08rem;
+
   line-height: 1.75;
 }
 
@@ -536,6 +545,7 @@ a {
   color: var(--gold);
 
   font-size: 1.05rem;
+
   font-weight: 700;
 }
 
@@ -683,9 +693,6 @@ a {
     width: calc(100% - 36px);
   }
 
-
-  /* HERO */
-
   .hero {
     min-height: auto;
 
@@ -715,9 +722,6 @@ a {
     font-size: 1.02rem;
   }
 
-
-  /* ABOUT */
-
   .about {
     min-height: auto;
 
@@ -735,9 +739,6 @@ a {
     font-size: 1.08rem;
   }
 
-
-  /* SERVICES */
-
   .services {
     padding: 90px 0;
   }
@@ -745,9 +746,6 @@ a {
   .services-grid {
     grid-template-columns: 1fr;
   }
-
-
-  /* CONTACT */
 
   .contact {
     min-height: auto;
