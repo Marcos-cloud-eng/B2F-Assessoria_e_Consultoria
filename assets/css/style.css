@@ -1,10 +1,4 @@
 /* =========================================================
-   B2F ASSESSORIA E CONSULTORIA
-   STYLE.CSS
-========================================================= */
-
-
-/* =========================================================
    RESET
 ========================================================= */
 
@@ -16,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -27,62 +22,52 @@ body {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 
 /* =========================================================
-   VARIÁVEIS
+   CORES
 ========================================================= */
 
 :root {
   --navy: #071f28;
-  --navy-light: #102f39;
-  --navy-card: #12343e;
+  --navy-soft: #0d2933;
+  --navy-card: #12323c;
 
-  --gold: #dda943;
-  --gold-light: #e9bd64;
+  --gold: #dfa943;
+  --gold-light: #ecbc5d;
+
+  --cream: #f4f1ea;
 
   --white: #ffffff;
-  --off-white: #f5f2eb;
 
-  --text-light: #edf1f2;
-  --text-muted: #aebbc1;
-  --text-dark: #243b46;
+  --text-light: #eef2f3;
+  --text-muted: #aeb9be;
 
-  --border: rgba(255, 255, 255, 0.12);
+  --dark-text: #0b222b;
 
-  --max-width: 1180px;
+  --max-width: 1220px;
 }
 
 
 /* =========================================================
-   PADRÃO GLOBAL DE CONTEÚDO
+   CONTAINER
 ========================================================= */
 
-.section-container,
-.hero-container {
-  width: min(var(--max-width), calc(100% - 64px));
+.container {
+  width: min(
+    var(--max-width),
+    calc(100% - 64px)
+  );
+
   margin: 0 auto;
-}
-
-.section-eyebrow {
-  margin: 0 0 24px;
-
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-
-  text-transform: uppercase;
-  text-align: left;
-
-  color: var(--gold);
 }
 
 
@@ -95,7 +80,8 @@ a {
   align-items: center;
   justify-content: center;
 
-  min-height: 58px;
+  min-height: 56px;
+
   padding: 0 30px;
 
   border-radius: 999px;
@@ -113,25 +99,59 @@ a {
   transform: translateY(-2px);
 }
 
-.btn-primary {
+.btn-gold {
   background: var(--gold);
   color: #071f28;
+
   border: 1px solid var(--gold);
 }
 
-.btn-primary:hover {
+.btn-gold:hover {
   background: var(--gold-light);
 }
 
-.btn-secondary {
+.btn-outline {
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
   background: transparent;
 }
 
-.btn-secondary:hover {
+.btn-outline:hover {
   border-color: var(--gold);
+}
+
+.btn-dark-outline {
+  color: var(--dark-text);
+
+  border: 1px solid rgba(7, 31, 40, 0.28);
+
+  background: transparent;
+}
+
+.btn-dark-outline:hover {
+  border-color: var(--gold);
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.section-label {
+  display: block;
+
+  margin-bottom: 24px;
+
   color: var(--gold);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
 }
 
 
@@ -143,27 +163,33 @@ a {
   min-height: 100vh;
 
   display: flex;
+
   align-items: center;
+  justify-content: center;
 
   padding: 70px 0 90px;
 
   background:
     radial-gradient(
-      circle at 50% 20%,
-      rgba(30, 74, 88, 0.35),
-      transparent 42%
+      circle at center top,
+      rgba(32, 71, 83, 0.28),
+      transparent 45%
     ),
-    linear-gradient(
-      180deg,
-      #09232c 0%,
-      #071f28 100%
-    );
+    #071f28;
+
+  scroll-snap-align: start;
 }
 
 .hero-container {
+  text-align: center;
+
   display: flex;
+
   flex-direction: column;
-  align-items: flex-start;
+
+  align-items: center;
+
+  transform: translateY(-50px);
 }
 
 
@@ -171,80 +197,80 @@ a {
    HERO LOGO
 ========================================================= */
 
-.hero-logo-wrapper {
+.hero-logo-box {
   width: 100%;
 
   display: flex;
   justify-content: center;
 
-  margin-bottom: 46px;
+  margin-bottom: 42px;
 }
 
 .hero-logo {
-  width: min(560px, 100%);
+  width: 500px;
+  max-width: 90%;
+
   height: auto;
 
   object-fit: contain;
 
-  border-radius: 18px;
+  border-radius: 20px;
 }
 
 
 /* =========================================================
-   HERO CONTENT
+   HERO TITLE
 ========================================================= */
 
-.hero-content {
-  width: 100%;
-  text-align: left;
-}
-
 .hero-title {
-  max-width: 1150px;
+  margin: 0;
 
   display: flex;
   flex-direction: column;
 
-  margin: 0;
+  align-items: center;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: clamp(3.5rem, 6.4vw, 6.5rem);
-  line-height: 0.96;
+  font-size:
+    clamp(3.3rem, 6vw, 6rem);
+
+  line-height: 1;
+
   letter-spacing: -0.035em;
 
-  font-weight: 700;
-
   color: var(--white);
-
-  text-align: left;
 }
 
 .hero-title span {
   display: block;
 }
 
-.hero-title-gold {
-  margin-top: 10px;
+.hero-title .gold {
   color: var(--gold);
+
+  margin-top: 10px;
 }
 
 
 /* =========================================================
-   HERO DESCRIÇÃO
+   HERO DESCRIPTION
 ========================================================= */
 
 .hero-description {
-  max-width: 1050px;
+  max-width: 1120px;
 
-  margin: 34px 0 0;
+  margin: 32px auto 0;
 
-  font-size: 1.18rem;
-  line-height: 1.7;
+  font-size: 1.17rem;
+  line-height: 1.6;
 
   color: var(--text-light);
 
-  text-align: left;
+  text-align: center;
 }
 
 
@@ -252,12 +278,13 @@ a {
    HERO BUTTONS
 ========================================================= */
 
-.hero-actions {
+.hero-buttons {
   margin-top: 36px;
 
   display: flex;
+
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   gap: 16px;
 
@@ -266,23 +293,28 @@ a {
 
 
 /* =========================================================
-   SOBRE
+   ABOUT
 ========================================================= */
 
-.about-section {
-  min-height: 80vh;
+.about {
+  min-height: 100vh;
 
   display: flex;
+
   align-items: center;
+  justify-content: center;
 
-  padding: 120px 0;
+  padding: 100px 0;
 
-  background: var(--off-white);
+  background: var(--cream);
+
+  scroll-snap-align: start;
 }
 
 .about-container {
-  width: 100%;
-  text-align: left;
+  max-width: 1180px;
+
+  text-align: center;
 }
 
 
@@ -290,93 +322,102 @@ a {
    ABOUT TITLE
 ========================================================= */
 
-.about-title {
-  max-width: 1100px;
+.about-title-group {
+  width: 100%;
 
-  display: flex;
-  flex-direction: column;
+  max-width: 1200px;
 
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.about-title-line {
   margin: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: clamp(3.4rem, 5.8vw, 5.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+  font-size:
+    clamp(2.8rem, 4vw, 4.6rem);
+
+  line-height: 1.08;
+
+  letter-spacing: -0.03em;
 
   font-weight: 700;
 
-  color: #081f28;
+  color: var(--dark-text);
 
-  text-align: left;
+  text-align: center;
+
+  white-space: nowrap;
 }
 
-.about-title span {
-  display: block;
-}
-
-.about-title span + span {
-  margin-top: 10px;
+.about-title-line + .about-title-line {
+  margin-top: 12px;
 }
 
 
 /* =========================================================
-   ABOUT DESCRIPTION
+   ABOUT TEXT
 ========================================================= */
 
-.about-description {
-  max-width: 1000px;
+.about-text {
+  max-width: 1020px;
 
-  margin: 38px 0 0;
+  margin: 40px auto 0;
 
-  font-size: 1.25rem;
+  color: #334b55;
+
+  font-size: 1.3rem;
   line-height: 1.75;
 
-  color: var(--text-dark);
-
-  text-align: left;
+  text-align: center;
 }
 
 
 /* =========================================================
-   SERVIÇOS
+   SERVICES
 ========================================================= */
 
-.services-section {
-  padding: 120px 0;
+.services {
+  min-height: 100vh;
 
-  background:
-    linear-gradient(
-      180deg,
-      #071f28 0%,
-      #08242e 100%
-    );
+  padding: 105px 0 120px;
+
+  background: var(--navy);
+
+  scroll-snap-align: start;
 }
 
 
 /* =========================================================
-   SERVICES HEADER
+   SERVICES HEADING
 ========================================================= */
 
-.services-header {
-  max-width: 950px;
+.services-heading {
+  max-width: 900px;
 
-  margin: 0 0 60px;
+  margin: 0 auto 60px;
 
-  text-align: left;
+  text-align: center;
 }
 
-.services-title {
-  margin: 0;
+.services-heading h2 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-size:
+    clamp(2.8rem, 4.5vw, 4.6rem);
 
-  font-size: clamp(2.9rem, 4.8vw, 4.8rem);
   line-height: 1.06;
 
   color: var(--white);
-
-  text-align: left;
 }
 
 
@@ -388,9 +429,9 @@ a {
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(2, 1fr);
 
-  gap: 28px;
+  gap: 30px;
 }
 
 
@@ -401,11 +442,13 @@ a {
 .service-card {
   min-height: 350px;
 
-  padding: 40px 36px;
-
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
+
+  padding: 38px 34px;
 
   text-align: left;
 
@@ -413,7 +456,8 @@ a {
     rgba(255, 255, 255, 0.035);
 
   border:
-    1px solid var(--border);
+    1px solid
+    rgba(255, 255, 255, 0.12);
 
   border-radius: 28px;
 
@@ -427,7 +471,7 @@ a {
   transform: translateY(-4px);
 
   border-color:
-    rgba(221, 169, 67, 0.55);
+    rgba(223, 169, 67, 0.5);
 
   background:
     rgba(255, 255, 255, 0.05);
@@ -439,16 +483,13 @@ a {
 ========================================================= */
 
 .service-number {
-  display: block;
-
-  margin-bottom: 28px;
-
-  font-size: 1rem;
-  font-weight: 500;
-
-  letter-spacing: 0.1em;
+  margin-bottom: 30px;
 
   color: var(--gold);
+
+  font-size: 1rem;
+
+  letter-spacing: 0.08em;
 }
 
 
@@ -457,36 +498,31 @@ a {
 ========================================================= */
 
 .service-card h3 {
-  margin: 0 0 20px;
+  margin-bottom: 22px;
 
-  max-width: 500px;
-
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   font-size: 2rem;
-  line-height: 1.15;
+  line-height: 1.16;
 
   color: var(--white);
-
-  text-align: left;
 }
 
 
 /* =========================================================
-   SERVICE DESCRIPTION
+   SERVICE TEXT
 ========================================================= */
 
 .service-card p {
-  max-width: 520px;
-
-  margin: 0 0 30px;
-
-  font-size: 1.08rem;
-  line-height: 1.75;
+  margin-bottom: 30px;
 
   color: var(--text-muted);
 
-  text-align: left;
+  font-size: 1.08rem;
+  line-height: 1.75;
 }
 
 
@@ -501,8 +537,6 @@ a {
 
   font-size: 1.05rem;
   font-weight: 700;
-
-  transition: color 0.2s ease;
 }
 
 .service-link:hover {
@@ -511,19 +545,25 @@ a {
 
 
 /* =========================================================
-   CONTATO
+   CONTACT
 ========================================================= */
 
-.contact-section {
-  padding: 120px 0;
+.contact {
+  min-height: 85vh;
 
-  background: var(--off-white);
+  display: flex;
+
+  align-items: center;
+
+  padding: 100px 0;
+
+  background: var(--cream);
+
+  scroll-snap-align: start;
 }
 
-.contact-content {
-  max-width: 1000px;
-
-  text-align: left;
+.contact-container {
+  text-align: center;
 }
 
 
@@ -531,37 +571,39 @@ a {
    CONTACT TITLE
 ========================================================= */
 
-.contact-title {
-  margin: 0;
+.contact h2 {
+  max-width: 980px;
 
-  max-width: 900px;
+  margin: 0 auto;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size:
+    clamp(3rem, 5vw, 5rem);
+
   line-height: 1.05;
 
-  color: #081f28;
-
-  text-align: left;
+  color: var(--dark-text);
 }
 
 
 /* =========================================================
-   CONTACT DESCRIPTION
+   CONTACT TEXT
 ========================================================= */
 
-.contact-description {
-  max-width: 850px;
+.contact p {
+  max-width: 900px;
 
-  margin: 30px 0 0;
+  margin: 30px auto 0;
+
+  color: #334b55;
 
   font-size: 1.2rem;
+
   line-height: 1.7;
-
-  color: var(--text-dark);
-
-  text-align: left;
 }
 
 
@@ -569,28 +611,17 @@ a {
    CONTACT BUTTONS
 ========================================================= */
 
-.contact-actions {
+.contact-buttons {
   margin-top: 38px;
 
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
 
-  gap: 14px;
+  align-items: center;
+  justify-content: center;
 
   flex-wrap: wrap;
-}
 
-.contact-section .btn-secondary {
-  color: #081f28;
-
-  border-color:
-    rgba(8, 31, 40, 0.3);
-}
-
-.contact-section .btn-secondary:hover {
-  color: #081f28;
-  border-color: var(--gold);
+  gap: 14px;
 }
 
 
@@ -601,23 +632,17 @@ a {
 .footer {
   padding: 34px 0;
 
-  background: #041820;
+  background: #04171e;
 
   border-top:
-    1px solid rgba(255, 255, 255, 0.08);
-}
+    1px solid
+    rgba(255, 255, 255, 0.08);
 
-.footer-container {
-  display: flex;
-
-  align-items: center;
-  justify-content: flex-start;
-
-  text-align: left;
+  text-align: center;
 }
 
 .footer p {
-  color: #9eafb5;
+  color: #9caeb4;
 
   font-size: 0.92rem;
 }
@@ -629,112 +654,91 @@ a {
 
 @media (max-width: 1024px) {
 
-  .section-container,
   .hero-container {
-    width: min(
-      var(--max-width),
-      calc(100% - 48px)
-    );
+    transform: translateY(-35px);
   }
 
-  .hero {
-    min-height: auto;
-
-    padding:
-      70px 0 85px;
+  .container {
+    width: calc(100% - 48px);
   }
 
   .hero-logo {
-    width: min(470px, 100%);
-  }
-
-  .hero-title {
-    font-size:
-      clamp(3.2rem, 7vw, 5.3rem);
-  }
-
-  .about-title {
-    font-size:
-      clamp(3rem, 6.5vw, 5rem);
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr 1fr;
+    width: 450px;
   }
 
 }
 
 
 /* =========================================================
-   MOBILE / TABLET MENOR
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
-  .section-container,
-  .hero-container {
-    width: calc(100% - 38px);
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .container {
+    width: calc(100% - 36px);
   }
 
 
   /* HERO */
 
   .hero {
-    padding:
-      55px 0 70px;
+    min-height: auto;
+
+    padding: 60px 0 80px;
   }
 
-  .hero-logo-wrapper {
-    margin-bottom: 38px;
+  .hero-container {
+    transform: translateY(-20px);
+  }
+
+  .hero-logo-box {
+    margin-bottom: 34px;
   }
 
   .hero-logo {
-    width: min(390px, 100%);
+    width: 340px;
 
-    border-radius: 14px;
+    border-radius: 16px;
   }
 
   .hero-title {
     font-size:
-      clamp(2.8rem, 11vw, 4rem);
-
-    line-height: 1;
+      clamp(2.6rem, 11vw, 4rem);
   }
 
   .hero-description {
-    margin-top: 28px;
-
-    font-size: 1.05rem;
-  }
-
-  .hero-actions {
-    margin-top: 30px;
+    font-size: 1.02rem;
   }
 
 
   /* ABOUT */
 
-  .about-section {
+  .about {
     min-height: auto;
 
     padding: 90px 0;
   }
 
-  .about-title {
+  .about-title-line {
+    white-space: normal;
+
     font-size:
-      clamp(2.7rem, 10vw, 4rem);
+      clamp(2.4rem, 9vw, 3.4rem);
   }
 
-  .about-description {
-    margin-top: 30px;
-
+  .about-text {
     font-size: 1.08rem;
   }
 
 
   /* SERVICES */
 
-  .services-section {
+  .services {
     padding: 90px 0;
   }
 
@@ -742,18 +746,12 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .services-header {
-    margin-bottom: 45px;
-  }
-
-  .service-card {
-    min-height: 310px;
-  }
-
 
   /* CONTACT */
 
-  .contact-section {
+  .contact {
+    min-height: auto;
+
     padding: 90px 0;
   }
 
@@ -761,83 +759,40 @@ a {
 
 
 /* =========================================================
-   CELULAR
+   SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 560px) {
+@media (max-width: 480px) {
 
-  .section-container,
   .hero-container {
-    width: calc(100% - 30px);
+    transform: translateY(-10px);
   }
-
-
-  /* LOGO */
 
   .hero-logo {
-    width: 100%;
-    max-width: 330px;
+    width: 300px;
   }
-
-
-  /* HERO */
 
   .hero-title {
     font-size:
-      clamp(2.45rem, 12vw, 3.35rem);
-
-    letter-spacing: -0.025em;
+      clamp(2.35rem, 12vw, 3.3rem);
   }
 
-  .hero-title-gold {
-    margin-top: 8px;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .hero-actions {
+  .hero-buttons,
+  .contact-buttons {
     width: 100%;
 
     flex-direction: column;
-
-    align-items: stretch;
   }
 
-  .hero-actions .btn {
+  .hero-buttons .btn,
+  .contact-buttons .btn {
     width: 100%;
   }
 
-
-  /* ABOUT */
-
-  .section-eyebrow {
+  .section-label {
     font-size: 0.78rem;
 
-    letter-spacing: 0.18em;
-
-    margin-bottom: 20px;
-  }
-
-  .about-title {
-    font-size:
-      clamp(2.4rem, 11.5vw, 3.4rem);
-
-    line-height: 1.04;
-  }
-
-  .about-title span + span {
-    margin-top: 14px;
-  }
-
-
-  /* SERVICES */
-
-  .services-title {
-    font-size:
-      clamp(2.4rem, 11vw, 3.4rem);
+    letter-spacing: 0.16em;
   }
 
   .service-card {
@@ -848,37 +803,6 @@ a {
 
   .service-card h3 {
     font-size: 1.75rem;
-  }
-
-  .service-card p {
-    font-size: 1rem;
-  }
-
-
-  /* CONTACT */
-
-  .contact-title {
-    font-size:
-      clamp(2.5rem, 11vw, 3.5rem);
-  }
-
-  .contact-actions {
-    width: 100%;
-
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .contact-actions .btn {
-    width: 100%;
-  }
-
-
-  /* FOOTER */
-
-  .footer-container {
-    justify-content: flex-start;
   }
 
 }
