@@ -1,1106 +1,884 @@
-:root {
-    --navy: #0f2630;
-    --navy-dark: #091a22;
-    --navy-soft: #173846;
-
-    --gold: #d8a84e;
-    --gold-soft: #e7c47d;
-
-    --white: #ffffff;
-    --off-white: #f7f5f0;
-
-    --text: #dfe7ea;
-    --muted: #9fb0b8;
-
-    --border: rgba(255, 255, 255, 0.08);
-
-    --shadow:
-        0 20px 60px rgba(0, 0, 0, 0.25);
-
-    --radius: 18px;
-
-    --container: 1180px;
-
-    --header-height: 86px;
-}
+/* =========================================================
+   B2F ASSESSORIA E CONSULTORIA
+   STYLE.CSS
+========================================================= */
 
 
-/* =====================================================
-RESET
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: var(--header-height);
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--navy-dark);
-    color: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #071f28;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-    font: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 
-/* =====================================================
-SCROLL SNAP
-===================================================== */
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
 
-.snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
+:root {
+  --navy: #071f28;
+  --navy-light: #102f39;
+  --navy-card: #12343e;
 
-.hero,
-.intro,
-.benefits,
-.about,
-.cta {
-    min-height: calc(100vh - var(--header-height));
-}
+  --gold: #dda943;
+  --gold-light: #e9bd64;
 
-.hero,
-.intro,
-.benefits,
-.about,
-.cta {
-    display: flex;
-    align-items: center;
-}
+  --white: #ffffff;
+  --off-white: #f5f2eb;
 
-.content-section {
-    min-height: calc(100vh - var(--header-height));
-    padding-top: 90px;
-    padding-bottom: 90px;
+  --text-light: #edf1f2;
+  --text-muted: #aebbc1;
+  --text-dark: #243b46;
+
+  --border: rgba(255, 255, 255, 0.12);
+
+  --max-width: 1180px;
 }
 
 
-/* =====================================================
-UTILITIES
-===================================================== */
+/* =========================================================
+   PADRÃO GLOBAL DE CONTEÚDO
+========================================================= */
 
-.container {
-    width: min(92%, var(--container));
-    margin: 0 auto;
+.section-container,
+.hero-container {
+  width: min(var(--max-width), calc(100% - 64px));
+  margin: 0 auto;
 }
 
-.section-label {
-    display: inline-block;
-    color: var(--gold);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    font-weight: 700;
-    margin-bottom: 16px;
-}
+.section-eyebrow {
+  margin: 0 0 24px;
 
-.section-header {
-    text-align: center;
-    max-width: 760px;
-    margin: 0 auto 48px;
-}
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
 
-.section-header h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 18px;
-}
+  text-transform: uppercase;
+  text-align: left;
 
-.section-header p {
-    color: var(--muted);
-    font-size: 1.05rem;
+  color: var(--gold);
 }
 
 
-/* =====================================================
-BUTTONS
-===================================================== */
+/* =========================================================
+   BOTÕES
+========================================================= */
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    min-height: 52px;
-    padding: 0 24px;
+  min-height: 58px;
+  padding: 0 30px;
 
-    border-radius: 999px;
-    font-weight: 700;
+  border-radius: 999px;
 
-    transition: 0.25s ease;
+  font-size: 1rem;
+  font-weight: 700;
 
-    border: 1px solid transparent;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .btn-primary {
-    background: var(--gold);
-    color: var(--navy-dark);
+  background: var(--gold);
+  color: #071f28;
+  border: 1px solid var(--gold);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    background: var(--gold-soft);
+  background: var(--gold-light);
 }
 
-.btn-secondary,
-.btn-outline {
-    border-color: rgba(255, 255, 255, 0.30);
-    color: var(--white);
-    background: transparent;
+.btn-secondary {
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
 }
 
-.btn-secondary:hover,
-.btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
 
-/* =====================================================
-HEADER
-===================================================== */
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    height: var(--header-height);
-
-    background: rgba(9, 26, 34, 0.94);
-
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.header-container {
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 24px;
-}
-
-.logo-link {
-    display: inline-flex;
-    align-items: center;
-}
-
-.header-logo {
-    width: 145px;
-    max-height: 64px;
-    object-fit: contain;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.navbar a {
-    color: var(--text);
-    font-size: 0.95rem;
-    transition: 0.2s ease;
-}
-
-.navbar a:hover {
-    color: var(--gold);
-}
-
-.menu-toggle {
-    display: none;
-
-    border: none;
-    background: transparent;
-
-    color: var(--white);
-
-    font-size: 1.8rem;
-
-    cursor: pointer;
-}
-
-
-/* =====================================================
-HERO
-===================================================== */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
-    position: relative;
+  min-height: 100vh;
 
-    justify-content: center;
+  display: flex;
+  align-items: center;
 
-    overflow: hidden;
+  padding: 70px 0 90px;
 
-    padding: 55px 0;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(216, 168, 78, 0.08),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            var(--navy-dark),
-            var(--navy)
-        );
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(9, 26, 34, 0.18),
-            rgba(9, 26, 34, 0.45)
-        );
-
-    pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(30, 74, 88, 0.35),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #09232c 0%,
+      #071f28 100%
+    );
 }
 
 .hero-container {
-    position: relative;
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 32px;
-
-    text-align: center;
-
-    transform: translateY(-50px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.hero-brand {
-    width: 100%;
 
-    display: flex;
+/* =========================================================
+   HERO LOGO
+========================================================= */
 
-    justify-content: center;
-    align-items: center;
+.hero-logo-wrapper {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 46px;
 }
 
 .hero-logo {
-    width: min(100%, 460px);
-    max-width: 460px;
+  width: min(560px, 100%);
+  height: auto;
 
-    border-radius: 20px;
+  object-fit: contain;
 
-    box-shadow: var(--shadow);
+  border-radius: 18px;
 }
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
 
 .hero-content {
-    width: 100%;
-    max-width: 1500px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
+  width: 100%;
+  text-align: left;
 }
 
-.hero-content h1 {
-    font-family: Georgia, "Times New Roman", serif;
+.hero-title {
+  max-width: 1150px;
 
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
 
-    line-height: 1.02;
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(3.5rem, 6.4vw, 6.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+
+  font-weight: 700;
+
+  color: var(--white);
+
+  text-align: left;
 }
 
-.hero-line {
-    display: block;
-    white-space: nowrap;
+.hero-title span {
+  display: block;
 }
 
-.hero-line-1 {
-    color: var(--white);
-
-    font-size:
-        clamp(3rem, 5.5vw, 5.7rem);
-}
-
-.hero-line-2 {
-    color: var(--gold);
-
-    font-size:
-        clamp(3rem, 5.5vw, 5.7rem);
-
-    margin-top: 8px;
-}
-
-.hero-content p {
-    max-width: 1100px;
-
-    color: var(--text);
-
-    font-size: 1.28rem;
-
-    line-height: 1.55;
-
-    margin: 0 auto;
-}
-
-.hero-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 14px;
-
-    margin-top: 30px;
+.hero-title-gold {
+  margin-top: 10px;
+  color: var(--gold);
 }
 
 
-/* =====================================================
-INTRO
-===================================================== */
+/* =========================================================
+   HERO DESCRIÇÃO
+========================================================= */
 
-.intro {
-    justify-content: center;
+.hero-description {
+  max-width: 1050px;
 
-    padding: 80px 0;
+  margin: 34px 0 0;
 
-    background: var(--off-white);
+  font-size: 1.18rem;
+  line-height: 1.7;
 
-    color: var(--navy-dark);
-}
+  color: var(--text-light);
 
-.intro-container {
-    max-width: 850px;
-    text-align: center;
-}
-
-.intro h2 {
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size:
-        clamp(2.2rem, 4vw, 3.6rem);
-
-    line-height: 1.1;
-
-    margin-bottom: 22px;
-}
-
-.intro p {
-    font-size: 1.08rem;
-    color: #42515a;
+  text-align: left;
 }
 
 
-/* =====================================================
-SERVICES
-===================================================== */
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
-.services {
-    background: var(--navy);
-}
+.hero-actions {
+  margin-top: 36px;
 
-.services-grid {
-    display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+  gap: 16px;
 
-    gap: 22px;
-}
-
-.service-card {
-    position: relative;
-
-    background:
-        rgba(255, 255, 255, 0.035);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        var(--radius);
-
-    padding: 32px;
-
-    min-height: 270px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    transition: 0.25s ease;
-}
-
-.service-card:hover {
-    transform:
-        translateY(-6px);
-
-    border-color:
-        rgba(216, 168, 78, 0.45);
-
-    background:
-        rgba(255, 255, 255, 0.055);
-}
-
-.service-number {
-    color: var(--gold);
-
-    font-size: 0.84rem;
-
-    letter-spacing: 0.12em;
-
-    margin-bottom: 24px;
-}
-
-.service-card h3 {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 1.45rem;
-
-    line-height: 1.2;
-
-    margin-bottom: 16px;
-}
-
-.service-card p {
-    color: var(--muted);
-
-    margin-bottom: 24px;
-}
-
-.service-card a {
-    margin-top: auto;
-
-    color: var(--gold);
-
-    font-weight: 700;
+  flex-wrap: wrap;
 }
 
 
-/* =====================================================
-AUDIENCE
-===================================================== */
+/* =========================================================
+   SOBRE
+========================================================= */
 
-.audience {
-    background: var(--off-white);
-    color: var(--navy-dark);
-}
+.about-section {
+  min-height: 80vh;
 
-.audience .section-header p {
-    color: #5e6b72;
-}
+  display: flex;
+  align-items: center;
 
-.audience-grid {
-    display: grid;
+  padding: 120px 0;
 
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-.audience-card {
-    min-height: 170px;
-
-    padding: 28px;
-
-    border:
-        1px solid rgba(15, 38, 48, 0.12);
-
-    border-radius:
-        var(--radius);
-
-    background: var(--white);
-
-    transition: 0.25s ease;
-}
-
-.audience-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 18px 45px rgba(15, 38, 48, 0.08);
-}
-
-.audience-card span {
-    color: var(--gold);
-
-    font-weight: 700;
-
-    font-size: 0.84rem;
-}
-
-.audience-card h3 {
-    margin-top: 34px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 1.35rem;
-}
-
-
-/* =====================================================
-BENEFITS
-===================================================== */
-
-.benefits {
-    justify-content: center;
-
-    padding: 80px 0;
-
-    background: var(--navy-dark);
-}
-
-.benefits-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 24px;
-}
-
-.benefit-item {
-    padding-top: 24px;
-
-    border-top:
-        1px solid rgba(216, 168, 78, 0.45);
-}
-
-.benefit-item strong {
-    color: var(--gold);
-
-    font-size: 0.85rem;
-}
-
-.benefit-item h3 {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 1.35rem;
-
-    margin:
-        14px 0 12px;
-}
-
-.benefit-item p {
-    color: var(--muted);
-}
-
-
-/* =====================================================
-ABOUT
-===================================================== */
-
-.about {
-    justify-content: center;
-
-    padding: 80px 0;
-
-    background: var(--navy);
+  background: var(--off-white);
 }
 
 .about-container {
-    display: grid;
-
-    grid-template-columns:
-        0.9fr 1.1fr;
-
-    align-items: center;
-
-    gap: 70px;
-}
-
-.about-brand img {
-    width: 100%;
-
-    max-width: 460px;
-
-    margin: 0 auto;
-
-    border-radius: 24px;
-
-    box-shadow: var(--shadow);
-}
-
-.about-content h2 {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(2.2rem, 4vw, 3.5rem);
-
-    line-height: 1.1;
-
-    margin-bottom: 24px;
-}
-
-.about-content p {
-    color: var(--text);
-
-    margin-bottom: 18px;
+  width: 100%;
+  text-align: left;
 }
 
 
-/* =====================================================
-CTA
-===================================================== */
+/* =========================================================
+   ABOUT TITLE
+========================================================= */
 
-.cta {
-    justify-content: center;
+.about-title {
+  max-width: 1100px;
 
-    padding: 80px 0;
+  display: flex;
+  flex-direction: column;
 
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(216, 168, 78, 0.11),
-            transparent 32%
-        ),
-        var(--navy-dark);
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(3.4rem, 5.8vw, 5.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+
+  font-weight: 700;
+
+  color: #081f28;
+
+  text-align: left;
 }
 
-.cta-container {
-    text-align: center;
-
-    max-width: 820px;
+.about-title span {
+  display: block;
 }
 
-.cta h2 {
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(2.4rem, 5vw, 4rem);
-
-    line-height:
-        1.05;
-
-    margin-bottom:
-        20px;
-}
-
-.cta p {
-    color: var(--text);
-
-    font-size:
-        1.08rem;
-
-    margin-bottom:
-        30px;
-}
-
-.cta-buttons {
-    display: flex;
-
-    flex-wrap:
-        wrap;
-
-    justify-content:
-        center;
-
-    gap:
-        14px;
+.about-title span + span {
+  margin-top: 10px;
 }
 
 
-/* =====================================================
-FOOTER
-===================================================== */
+/* =========================================================
+   ABOUT DESCRIPTION
+========================================================= */
+
+.about-description {
+  max-width: 1000px;
+
+  margin: 38px 0 0;
+
+  font-size: 1.25rem;
+  line-height: 1.75;
+
+  color: var(--text-dark);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   SERVIÇOS
+========================================================= */
+
+.services-section {
+  padding: 120px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #071f28 0%,
+      #08242e 100%
+    );
+}
+
+
+/* =========================================================
+   SERVICES HEADER
+========================================================= */
+
+.services-header {
+  max-width: 950px;
+
+  margin: 0 0 60px;
+
+  text-align: left;
+}
+
+.services-title {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2.9rem, 4.8vw, 4.8rem);
+  line-height: 1.06;
+
+  color: var(--white);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   SERVICES GRID
+========================================================= */
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.service-card {
+  min-height: 350px;
+
+  padding: 40px 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 28px;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(221, 169, 67, 0.55);
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================================
+   SERVICE NUMBER
+========================================================= */
+
+.service-number {
+  display: block;
+
+  margin-bottom: 28px;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   SERVICE TITLE
+========================================================= */
+
+.service-card h3 {
+  margin: 0 0 20px;
+
+  max-width: 500px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 2rem;
+  line-height: 1.15;
+
+  color: var(--white);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+========================================================= */
+
+.service-card p {
+  max-width: 520px;
+
+  margin: 0 0 30px;
+
+  font-size: 1.08rem;
+  line-height: 1.75;
+
+  color: var(--text-muted);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   SERVICE LINK
+========================================================= */
+
+.service-link {
+  margin-top: auto;
+
+  color: var(--gold);
+
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
+}
+
+.service-link:hover {
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact-section {
+  padding: 120px 0;
+
+  background: var(--off-white);
+}
+
+.contact-content {
+  max-width: 1000px;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   CONTACT TITLE
+========================================================= */
+
+.contact-title {
+  margin: 0;
+
+  max-width: 900px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.05;
+
+  color: #081f28;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   CONTACT DESCRIPTION
+========================================================= */
+
+.contact-description {
+  max-width: 850px;
+
+  margin: 30px 0 0;
+
+  font-size: 1.2rem;
+  line-height: 1.7;
+
+  color: var(--text-dark);
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-actions {
+  margin-top: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+.contact-section .btn-secondary {
+  color: #081f28;
+
+  border-color:
+    rgba(8, 31, 40, 0.3);
+}
+
+.contact-section .btn-secondary:hover {
+  color: #081f28;
+  border-color: var(--gold);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer {
-    background: #07151c;
+  padding: 34px 0;
 
-    border-top:
-        1px solid var(--border);
+  background: #041820;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-container {
-    display: grid;
+  display: flex;
 
-    grid-template-columns:
-        1.4fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: flex-start;
 
-    gap: 50px;
-
-    padding: 70px 0;
+  text-align: left;
 }
 
-.footer-logo {
-    width: 180px;
+.footer p {
+  color: #9eafb5;
 
-    margin-bottom: 20px;
-}
-
-.footer-brand p {
-    color: var(--muted);
-
-    max-width: 320px;
-}
-
-.footer h3 {
-    color: var(--gold);
-
-    margin-bottom: 18px;
-
-    font-size: 1rem;
-}
-
-.footer-links,
-.footer-services,
-.footer-contact {
-    display: flex;
-
-    flex-direction:
-        column;
-}
-
-.footer a {
-    color: var(--muted);
-
-    margin-bottom: 10px;
-
-    transition:
-        0.2s ease;
-}
-
-.footer a:hover {
-    color: var(--gold);
-}
-
-.footer-bottom {
-    border-top:
-        1px solid var(--border);
-
-    padding:
-        22px 0;
-
-    text-align:
-        center;
-}
-
-.footer-bottom p {
-    color: #71828a;
-
-    font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 
-/* =====================================================
-TABLETS
-===================================================== */
-
-@media (max-width: 1200px) {
-
-    .hero-line-1,
-    .hero-line-2 {
-        font-size:
-            clamp(2.8rem, 6vw, 5rem);
-    }
-}
-
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1024px) {
 
-    .hero-container {
-        transform:
-            translateY(-35px);
-    }
+  .section-container,
+  .hero-container {
+    width: min(
+      var(--max-width),
+      calc(100% - 48px)
+    );
+  }
 
-    .services-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+  .hero {
+    min-height: auto;
 
-    .audience-grid,
-    .benefits-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+    padding:
+      70px 0 85px;
+  }
 
-    .about-container {
-        grid-template-columns:
-            1fr;
-    }
+  .hero-logo {
+    width: min(470px, 100%);
+  }
 
-    .about-content {
-        text-align:
-            center;
-    }
+  .hero-title {
+    font-size:
+      clamp(3.2rem, 7vw, 5.3rem);
+  }
 
-    .footer-container {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+  .about-title {
+    font-size:
+      clamp(3rem, 6.5vw, 5rem);
+  }
 
-    .hero-logo {
-        max-width:
-            400px;
-    }
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 
-/* =====================================================
-MOBILE
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .hero-line {
-        white-space:
-            normal;
-    }
-}
-
+/* =========================================================
+   MOBILE / TABLET MENOR
+========================================================= */
 
 @media (max-width: 768px) {
 
-    :root {
-        --header-height:
-            74px;
-    }
+  .section-container,
+  .hero-container {
+    width: calc(100% - 38px);
+  }
 
-    html {
-        scroll-snap-type:
-            y proximity;
-    }
 
-    .snap-section {
-        scroll-snap-stop:
-            normal;
-    }
+  /* HERO */
 
-    .hero,
-    .intro,
-    .services,
-    .audience,
-    .benefits,
-    .about,
-    .cta {
-        min-height:
-            auto;
+  .hero {
+    padding:
+      55px 0 70px;
+  }
 
-        scroll-snap-align:
-            start;
-    }
+  .hero-logo-wrapper {
+    margin-bottom: 38px;
+  }
 
-    .content-section {
-        min-height:
-            auto;
+  .hero-logo {
+    width: min(390px, 100%);
 
-        padding-top:
-            80px;
+    border-radius: 14px;
+  }
 
-        padding-bottom:
-            80px;
-    }
+  .hero-title {
+    font-size:
+      clamp(2.8rem, 11vw, 4rem);
 
-    .header-logo {
-        width:
-            120px;
-    }
+    line-height: 1;
+  }
 
-    .menu-toggle {
-        display:
-            block;
-    }
+  .hero-description {
+    margin-top: 28px;
 
-    .navbar {
-        position:
-            absolute;
+    font-size: 1.05rem;
+  }
 
-        top:
-            var(--header-height);
+  .hero-actions {
+    margin-top: 30px;
+  }
 
-        left:
-            0;
 
-        right:
-            0;
+  /* ABOUT */
 
-        display:
-            none;
+  .about-section {
+    min-height: auto;
 
-        flex-direction:
-            column;
+    padding: 90px 0;
+  }
 
-        align-items:
-            stretch;
+  .about-title {
+    font-size:
+      clamp(2.7rem, 10vw, 4rem);
+  }
 
-        gap:
-            0;
+  .about-description {
+    margin-top: 30px;
 
-        background:
-            var(--navy-dark);
+    font-size: 1.08rem;
+  }
 
-        border-top:
-            1px solid var(--border);
 
-        padding:
-            12px 5%;
-    }
+  /* SERVICES */
 
-    .navbar.active {
-        display:
-            flex;
-    }
+  .services-section {
+    padding: 90px 0;
+  }
 
-    .navbar a {
-        padding:
-            14px 0;
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 
-        border-bottom:
-            1px solid var(--border);
-    }
+  .services-header {
+    margin-bottom: 45px;
+  }
 
-    .hero {
-        padding:
-            65px 0;
-    }
+  .service-card {
+    min-height: 310px;
+  }
 
-    .hero-container {
-        gap:
-            28px;
 
-        transform:
-            translateY(-20px);
-    }
+  /* CONTACT */
 
-    .hero-logo {
-        max-width:
-            320px;
-    }
+  .contact-section {
+    padding: 90px 0;
+  }
 
-    .hero-line-1,
-    .hero-line-2 {
-        font-size:
-            clamp(2.4rem, 11vw, 4rem);
-    }
-
-    .hero-content p {
-        font-size:
-            1.1rem;
-
-        max-width:
-            90%;
-    }
-
-    .services-grid,
-    .audience-grid,
-    .benefits-grid,
-    .footer-container {
-        grid-template-columns:
-            1fr;
-    }
-
-    .service-card {
-        min-height:
-            auto;
-    }
-
-    .intro,
-    .benefits,
-    .about,
-    .cta {
-        padding:
-            80px 0;
-    }
 }
 
 
-/* =====================================================
-SMALL MOBILE
-===================================================== */
+/* =========================================================
+   CELULAR
+========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
 
-    .hero-container {
-        transform:
-            translateY(-10px);
-    }
+  .section-container,
+  .hero-container {
+    width: calc(100% - 30px);
+  }
 
-    .hero-buttons,
-    .cta-buttons {
-        flex-direction:
-            column;
 
-        width:
-            100%;
-    }
+  /* LOGO */
 
-    .btn {
-        width:
-            100%;
-    }
+  .hero-logo {
+    width: 100%;
+    max-width: 330px;
+  }
 
-    .hero-logo {
-        max-width:
-            280px;
-    }
 
-    .service-card,
-    .audience-card {
-        padding:
-            24px;
-    }
+  /* HERO */
 
-    .hero-content p {
-        font-size:
-            1rem;
+  .hero-title {
+    font-size:
+      clamp(2.45rem, 12vw, 3.35rem);
 
-        max-width:
-            100%;
-    }
+    letter-spacing: -0.025em;
+  }
+
+  .hero-title-gold {
+    margin-top: 8px;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+
+  /* ABOUT */
+
+  .section-eyebrow {
+    font-size: 0.78rem;
+
+    letter-spacing: 0.18em;
+
+    margin-bottom: 20px;
+  }
+
+  .about-title {
+    font-size:
+      clamp(2.4rem, 11.5vw, 3.4rem);
+
+    line-height: 1.04;
+  }
+
+  .about-title span + span {
+    margin-top: 14px;
+  }
+
+
+  /* SERVICES */
+
+  .services-title {
+    font-size:
+      clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .service-card {
+    padding: 30px 26px;
+
+    border-radius: 22px;
+  }
+
+  .service-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+  }
+
+
+  /* CONTACT */
+
+  .contact-title {
+    font-size:
+      clamp(2.5rem, 11vw, 3.5rem);
+  }
+
+  .contact-actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+  }
+
+
+  /* FOOTER */
+
+  .footer-container {
+    justify-content: flex-start;
+  }
+
 }
